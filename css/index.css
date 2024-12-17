@@ -1,0 +1,87 @@
+
+body {
+  background-color: navajowhite;
+  color: rgb(5, 5, 130);
+  font-family: "Arsenal SC", sans-serif;
+  padding: 2px;
+}
+
+/* this will make sure these are aligned together */
+#about,
+h1,
+img {
+  text-align: center;
+  margin: auto;
+  display: block;
+}
+
+h1,
+h2,
+h3 {
+  color: navy;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+h1 {
+  font-style: oblique;
+}
+
+#experience {
+  padding: 20px;
+  background-color: #858282;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px;
+}
+
+#experience h2 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+#connect {
+  padding: 20px;
+  background-color: #858282;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  padding: 20px;
+}
+
+#connect li {
+ list-style: none; 
+ padding: 0;
+ margin: 0;
+ display: flex;
+ justify-content: center;
+ padding: 15px;
+}
+
+#connect a {
+  display: block;
+  width: 50px;
+  height: 50px;
+  text-indent: -9999px;
+  overflow: hidden;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+
+}
+
+#connect a.github {
+  background-image: url('../images/github.png');
+}
+
+#connect a.linkedin {
+  background-image: url('../images/linkedin2.png');
+}
+
+#connect a.facebook {
+  background-image: url('../images/facebook.png');
+}
+
+#connect a.instagram {
+  background-image: url('../images/instagram.png');
+}
