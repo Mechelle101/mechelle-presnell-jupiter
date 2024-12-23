@@ -3,7 +3,37 @@ body {
   background-color: navajowhite;
   color: rgb(5, 5, 130);
   font-family: "Arsenal SC", sans-serif;
-  padding: 2px;
+  font-size: 20px; 
+  margin: 0;
+  padding-top: 125px;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 0;
+  background-color: #334f77;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  gap: 1.5em;
+  list-style: none;
+}
+
+nav a {
+  color: navajowhite;
+  font-weight: bold;
+  text-decoration: none; 
+}
+
+nav a:hover {
+  color: #00ddff;
 }
 
 /* this will make sure these are aligned together */
@@ -23,16 +53,24 @@ h3 {
   font-weight: bold;
 }
 
+section,
+#about {
+  background-color: #858282;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  margin: 20px;
+  padding: 20px;
+}
+
 h1 {
   font-style: oblique;
 }
 
 #experience {
-  padding: 20px;
-  background-color: #858282;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-  margin-bottom: 20px;
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 
 #experience h2 {
@@ -41,12 +79,7 @@ h1 {
 }
 
 #connect {
-  padding: 20px;
-  background-color: #858282;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-  text-align: center;
-  padding: 20px;
+  display: flex;
 }
 
 #connect li {
@@ -54,7 +87,7 @@ h1 {
  padding: 0;
  margin: 0;
  display: flex;
- justify-content: center;
+ /* justify-content: center; */
  padding: 15px;
 }
 
