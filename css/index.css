@@ -1,3 +1,12 @@
+/* overall styles and default/desktop layout */
+* { 
+  box-sizing: border-box; 
+}
+
+#wrapper {
+  margin: auto;
+  width: 70%;
+}
 
 body {
   background-color: navajowhite;
@@ -8,6 +17,7 @@ body {
   padding-top: 125px;
 }
 
+/* header and navigation */
 header {
   position: fixed;
   top: 0;
@@ -15,34 +25,49 @@ header {
   width: 100%;
   padding: 20px 0;
   background-color: #334f77;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 3px 20px rgba(0, 0, 0, 0.5);
   z-index: 1000;
 }
 
 nav ul {
   display: flex;
+  padding: 0;
   justify-content: center;
-  gap: 1.5em;
   list-style: none;
+}
+
+nav li {
+  margin: 0 1em;
 }
 
 nav a {
   color: navajowhite;
   font-weight: bold;
   text-decoration: none; 
+  padding: .25em 0;
+}
+
+.current-page {
+  border-bottom: 1px solid navajowhite;
 }
 
 nav a:hover {
   color: #00ddff;
 }
 
-/* this will make sure these are aligned together */
+/* page title */
 #about,
 h1,
 img {
   text-align: center;
   margin: auto;
   display: block;
+}
+
+img {
+  border: 3px solid navy;
+  border-radius: 50%;
+  box-shadow: 0 3px 20px rgba(0, 0, 0, 0.5);
 }
 
 h1,
@@ -66,11 +91,20 @@ h1 {
   font-style: oblique;
 }
 
+/* moving the image and about section side by side */
+.name-about {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: 2fr;
+}
+
 #experience {
-  display: flex;
-  gap: 20px;
-  justify-content: space-between;
+  display: grid;
+  /* gap: 20px; */
+  justify-content: center;
   align-items: flex-start;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 2fr;
 }
 
 #experience h2 {
@@ -78,17 +112,25 @@ h1 {
   text-align: center;
 }
 
+/* placing skills and projects on a grid side by side */
+#skills-projects {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 2fr;
+}
+
+/* footer content */
 #connect {
-  display: flex;
+  align-content: center;
 }
 
 #connect li {
  list-style: none; 
  padding: 0;
- margin: 0;
+ margin: 0 1em;
  display: flex;
- /* justify-content: center; */
  padding: 15px;
+ display: inline-block;
 }
 
 #connect a {
@@ -100,21 +142,70 @@ h1 {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-
 }
 
-#connect a.github {
+#connect .github {
   background-image: url('../images/github.png');
 }
 
-#connect a.linkedin {
+#connect .linkedin {
   background-image: url('../images/linkedin2.png');
 }
 
-#connect a.facebook {
+#connect .facebook {
   background-image: url('../images/facebook.png');
 }
 
-#connect a.instagram {
+#connect .instagram {
   background-image: url('../images/instagram.png');
+}
+
+/* mobile first breakpoint of 350px to 850px  */
+@media (max-width: 850px){
+
+  @supports(grid-area: auto) {
+
+    #experience {
+      display: grid;
+      justify-content: center;
+      align-items: flex-start;
+      grid-template-columns: 1fr;
+      grid-template-rows: 2fr;
+    }
+
+    .name-about {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr 1fr;
+    }
+ } 
+
+  #about {
+    margin-top: 5px;
+  }
+
+}
+
+@media (max-width: 600px) {
+
+  @supports(grid-area: auto) {
+
+    .name-about {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr 1fr;
+    }
+
+    #about {
+      margin-top: 5px;
+    }
+
+    #skills-projects {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 2fr;
+    }
+
+ } 
+
 }
