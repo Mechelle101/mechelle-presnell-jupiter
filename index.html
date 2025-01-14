@@ -5,87 +5,95 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mechelle's Portfolio Page</title> 
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Arsenal+SC:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <!-- cursive link -->
+    <link href="https://fonts.googleapis.com/css?family=Caveat|Open+Sans:400,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/index.css">
+    <!-- <link rel="stylesheet" href="css/layout.css"> -->
   </head>
   <body>
-    <!-- Navigational Header -->
-    <header>
-     <nav>
-      <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#experence">Exprence</a></li>
-        <li><a href="#connect">Connect</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-      </ul>
-     </nav>
-    </header>
-
-    <h1>Mechelle Presnell</h1>
-    <img src="images/mechelle.jpg" alt="A selfy of mechechelle" width="150" height="150">
-
-    <section id="about">
-    <h2>About</h2>
-      <p>I am a student for life. I began my educational journey after starting a family 15 years ago, I found I love learning more than anything I, at the time, have ever done, and I continue on with that fondness today. In college I studied business and technology, I continued on the path of technology after graduation when i returned to college to study software development. This is that path that lead me to Code The Dream (CTD). I am in love with the program and see great things coming from it.
-      </p>
-    </section>
-
-    <section id="experience">
-      <div>
-        <h2>Experience</h2>
-        <h3>COLLEGE CLASSES</h3>
-          <ul>    
-            <li>HTML and CSS</li>
-            <li>JavaScript</li>
-            <li>MySQL</li>
-            <li>DataBase Design</li>
-            <li>PHP</li>
-            <li>C++</li>
-            <li>Python</li>
-            <li>Java</li>
-            <li>Capstone Project utilizing these skills to create a CMS website</li>
+    <div id="wrapper">
+      <!-- Navigational Header -->
+      <header>
+        <nav>
+          <ul>
+            <li><a href="#about" class="current-page">About</a></li>
+            <li><a href="#experence">Exprence</a></li>
+            <li><a href="#connect">Connect</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
           </ul>
+        </nav>
+      </header>
+
+      <div class="name-about">
+        <div class="name">
+          <h1>Mechelle Presnell</h1>
+          <img src="images/cartoon-img.jpg" alt="A selfy of mechechelle" width="215" height="361">
         </div>
 
+        <section id="about">
+        <h2>About</h2>
+          <p>I am a student for life. I began my educational journey at Appalachian State University. In college I studied business and technology, I continued on the path of technology after graduation when I returned to college to study software development. This is that path that lead me to Code The Dream (CTD). I am in love with the program and see great things coming from it.
+          </p>
+        </section>
+      </div>
+      <section id="experience">
         <div>
-          <h3>INTERNSHIP</h3>
+          <h2>Experience</h2>
+          <h3>College Classes</h3>
+            <ul>    
+              <li>HTML and CSS</li>
+              <li>JavaScript</li>
+              <li>MySQL</li>
+              <li>DataBase Design</li>
+              <li>PHP</li>
+              <li>C++</li>
+              <li>Python</li>
+              <li>Java</li>
+              <li>Capstone Project utilizing these skills to create a CMS website</li>
+              <li>IT department for the City of Asheville</li>
+            </ul>
+          </div>
+
+          <!-- <div>
+            I might put something here so i'm leaving this for now
+            <h3>INTERNSHIP</h3>
+            <ul>
+              
+            </ul> 
+          </div> -->
+      </section>
+
+      <div id="skills-projects">
+        <section id="skills">
+          <h2>SKILLS</h2>
+        </section>
+
+        <section id="projects">
+          <h2>PROJECTS</h2>
           <ul>
-            <li>IT department for the City of Asheville</li>
-          </ul> 
-        </div>
-    </section>
-
-    <section id="skills">
-      <h2>SKILLS</h2>
-    </section>
-
-    <section id="projects">
-      <h2>PROJECTS</h2>
-      <ul>
-        <li>Project1</li>
-        <li>Project2</li>
-        <li>Project3</li>
-      </ul>
-    </section>
-
-    <section id="connect">
-      <div>
-        <h2>Connect</h2> 
-          <ul>
-            <li><a href="https://www.linkedin.com/in/mechellepresnell/" target="_blank" class="linkedin">LinkedIn</a></li>
-
-            <li><a href="https://github.com/Mechelle101" target="_blank" class="github">GitHub</a></li>
-
-            <li><a href="https://www.facebook.com/mechelle.presnell" target="_blank" class="facebook">Facebook</a></li>
-
-            <li><a href="https://www.instagram.com/mechellepresnell/" target="_blank" class="instagram">Instagram</a></li>
+            <li>Project1</li>
+            <li>Project2</li>
+            <li>Project3</li>
           </ul>
-        </div>
-    </section>
+        </section>
+      </div>
 
+      <section id="connect">
+        <!-- <div> -->
+          <h2>Connect</h2> 
+            <ul>
+              <li><a href="https://www.linkedin.com/in/mechellepresnell/" target="_blank" class="linkedin">LinkedIn</a></li>
+
+              <li><a href="https://github.com/Mechelle101" target="_blank" class="github">GitHub</a></li>
+
+              <li><a href="https://www.facebook.com/mechelle.presnell" target="_blank" class="facebook">Facebook</a></li>
+
+              <li><a href="https://www.instagram.com/mechellepresnell/" target="_blank" class="instagram">Instagram</a></li>
+            </ul>
+          <!-- </div> -->
+      </section>
+    </div>
   </body>
 </html>
