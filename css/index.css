@@ -97,7 +97,7 @@ section,
 #experience {
   display: grid;
   justify-content: center;
-  align-items: flex-start;
+  align-items: start;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 2fr;
 }
@@ -153,6 +153,16 @@ section,
 
 #connect .instagram {
   background-image: url('../images/instagram.png');
+}
+
+/* footer styler to match the header somewhat */
+footer {
+  width: 100%;
+  padding: 20px;
+  background-color: #334f77;
+  box-shadow: 0 3px 20px rgba(0, 0, 0, 0.5);
+  color: navajowhite;
+  font-weight: bold;
 }
 
 /* desktop first breakpoint 850px  */
