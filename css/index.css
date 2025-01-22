@@ -220,7 +220,7 @@ footer {
 }/* 600px breakpoint */
 
 /* desktop first navigation breakpoint of 500px */
-@media (max-width: 500px) {
+@media (max-width: 635px) {
 
   nav ul {
     flex-direction: column; /* stacking vertically */

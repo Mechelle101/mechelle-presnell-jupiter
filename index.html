@@ -21,6 +21,7 @@
             <li><a href="#connect">Connect</a></li>
             <li><a href="#skills">Skills</a></li>
             <li><a href="#projects">Projects</a></li>
+            <li><a href="#leave_message">Leave a Message</a></li>
           </ul>
         </nav>
       </header>
@@ -54,14 +55,6 @@
               <li>IT department for the City of Asheville</li>
             </ul>
           </div>
-
-          <!-- <div>
-            I might put something here so i'm leaving this for now
-            <h3>INTERNSHIP</h3>
-            <ul>
-              
-            </ul> 
-          </div> -->
       </section>
 
       <div id="skills-projects">
@@ -96,7 +89,33 @@
             </ul>
           <!-- </div> -->
       </section>
+    
+      <section>
+        <h2>Leave a Message</h2>
+        <form name="leave_message" >
+          
+          <label for="usersName">Name:</label><br>
+          <input type="text" id="usersName" name="usersName" required="true"><br><br>
+
+          <label for="usersEmail">Email:</label><br>
+          <input type="email" id="usersEmail" name="usersEmail" required="true"><br><br>
+
+          <label for="usersMessage">Message:</label><br>
+          <textarea id="usersMessage" name="usersMessage" required="true"></textarea><br><br>
+
+          <button type="submit">Submit</button>
+        </form>
+      </section>
+
+      <section id="messages">
+        <h2>Messages</h2>
+        <ul>
+          
+        </ul>
+      </section>
+
     </div>
+
     <script src="js/index.js" defer></script>
   </body>
 </html>
