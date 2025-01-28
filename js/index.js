@@ -56,11 +56,6 @@ messageForm.addEventListener("submit", function(event) {
   const userEmail = event.target.usersEmail.value;
   const userMessage = event.target.usersMessage.value;
 
-  // log the retrieved values to the console
-  // console.log("Names: ", userName);
-  // console.log("Email: ", userEmail);
-  // console.log("Message: ", userMessage);
-
   // select the messages section and the ul inside of it
   const messageSection = document.getElementById("messages");
   const messageList = messageSection.querySelector("ul");
@@ -89,7 +84,7 @@ messageForm.addEventListener("submit", function(event) {
     entry.remove();
 
     //hide the messages section if the list is empty
-    if(messageSection.children.length === 0) {
+    if(messageList.children.length === 0) {
       messageSection.style.display = "none";
     }
   });
@@ -131,3 +126,53 @@ document.addEventListener("DOMContentLoaded", function() {
     messageSection.style.display = "none";
   } 
 });
+
+  //selecting the projects section and li 
+  //I feel like this needs to be before the fetch() method...
+  const projectSection = document.getElementById("projects");
+  const projectList = projectSection.querySelector("li");
+
+fetch('https://api.github.com/users/Mechelle101/repos')
+  .then(response => {
+    //checking if the response is ok code 200 range
+    if(!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    //returning the parsed JSON date from the repo
+    return response.json();
+  })
+  .then(data => {
+    //parse the response JSON date, stored in repositories
+    const repositories =  JSON.parse(JSON.stringify(data)); 
+    //logged repos to the console...
+    console.log('repositories: ', repositories);
+
+    //iterate over the repo array...
+    for(let i = 0; i < repositories.length; i++) {
+      //create a new li element for each repo
+      const project = document.createElement("li");
+      //set the inner text of of the project to the repository name
+      project.innerText = repositories[i].name;
+      //append the project element to the projectList element
+      projectList.appendChild(project);
+    }
+
+  })
+  .catch(error => {
+    //handling the errors and notifying the user
+    console.error(`An error occurred ${error.message}`);
+
+    //show any error message in the project section
+    const errorMessage = document.createElement("p");
+    errorMessage.innerText = "Could not fetch Repositories. Please try again later.";
+    projectSection.appendChild(errorMessage);
+
+    // if(error.message.includes('404'))  {
+    //   console.error(`User not found ${error.message}`);
+    // } else {
+    //   console.error(`Something went wrong, try again ${error.message}`);
+    // }
+  });
+
+
+
