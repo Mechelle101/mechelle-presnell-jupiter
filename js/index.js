@@ -127,12 +127,7 @@ document.addEventListener("DOMContentLoaded", function() {
   } 
 });
 
-  //selecting the projects section and li 
-  //I feel like this needs to be before the fetch() method...
-  const projectSection = document.getElementById("projects");
-  const projectList = projectSection.querySelector("li");
-
-fetch('https://api.github.com/users/Mechelle101/repos')
+fetch('https://api.github.com/users/Mechelle101/repos?sort=created&direction=desc&per_page=15')
   .then(response => {
     //checking if the response is ok code 200 range
     if(!response.ok) {
@@ -141,22 +136,20 @@ fetch('https://api.github.com/users/Mechelle101/repos')
     //returning the parsed JSON date from the repo
     return response.json();
   })
-  .then(data => {
-    //parse the response JSON date, stored in repositories
-    const repositories =  JSON.parse(JSON.stringify(data)); 
-    //logged repos to the console...
-    console.log('repositories: ', repositories);
+  .then(repositories => {
+    //selecting the projects section and li 
+    const projectSection = document.getElementById("projects");
+    const projectList = projectSection.querySelector("li");
 
-    //iterate over the repo array...
-    for(let i = 0; i < repositories.length; i++) {
-      //create a new li element for each repo
+    //clearing any existing content in the project list
+    projectList.innerHTML = '';
+
+    //iterate through the repos and creating an li to add the repo name to
+    repositories.forEach(repo => {
       const project = document.createElement("li");
-      //set the inner text of of the project to the repository name
-      project.innerText = repositories[i].name;
-      //append the project element to the projectList element
+      project.innerText = repo.name;
       projectList.appendChild(project);
-    }
-
+    });
   })
   .catch(error => {
     //handling the errors and notifying the user
@@ -167,12 +160,9 @@ fetch('https://api.github.com/users/Mechelle101/repos')
     errorMessage.innerText = "Could not fetch Repositories. Please try again later.";
     projectSection.appendChild(errorMessage);
 
-    // if(error.message.includes('404'))  {
-    //   console.error(`User not found ${error.message}`);
-    // } else {
-    //   console.error(`Something went wrong, try again ${error.message}`);
-    // }
+    if(error.message.includes('404'))  {
+      console.error(`User not found ${error.message}`);
+    } else {
+      console.error(`Something went wrong, try again ${error.message}`);
+    }
   });
-
-
-
