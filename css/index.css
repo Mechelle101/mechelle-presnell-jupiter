@@ -3,6 +3,11 @@
   box-sizing: border-box; 
 }
 
+.dark-mode {
+  background-color: #1a1a1a;
+  color: white;
+}
+
 #wrapper {
   margin: auto;
   width: 70%;
@@ -11,10 +16,11 @@
 body {
   background-color: navajowhite;
   color: rgb(5, 5, 130);
-  font-family: "Arsenal SC", sans-serif;
+  font-family: "Arsenal", sans-serif;
+  /* font-family: "Caveat", cursive; */
   font-size: 20px; 
   margin: 0;
-  padding-top: 125px;
+  padding-top: 150px;
 }
 
 h1,
@@ -76,6 +82,8 @@ img {
   border: 3px solid navy;
   border-radius: 50%;
   box-shadow: 0 3px 20px rgba(0, 0, 0, 0.5);
+  max-width: 100%;
+  height: auto;
 }
 
 section,
@@ -132,7 +140,10 @@ section,
   display: block;
   width: 50px;
   height: 50px;
-  text-indent: -9999px;
+  /* allow accessibility */
+  text-indent: unset;
+  /* Hides the text but keeps the accessibility */
+  font-size: 0;
   overflow: hidden;
   background-size: contain;
   background-repeat: no-repeat;
@@ -153,6 +164,21 @@ section,
 
 #connect .instagram {
   background-image: url('../images/instagram.png');
+}
+
+/* Form styles */
+button {
+  background-color: navy;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 10%;
+  cursor: pointer;
+  transition: .3s;
+}
+
+button:hover {
+  background-color: #00ddff;
 }
 
 /* footer styler to match the header somewhat */
@@ -201,6 +227,10 @@ footer {
 
   @supports(grid-area: auto) {
 
+    #experience {
+      display: block;
+    }
+
     .name-about {
       display: grid;
       grid-template-columns: 1fr;
@@ -216,6 +246,11 @@ footer {
       grid-template-columns: 1fr;
       grid-template-rows: 2fr;
     }
+
+    nav ul li a {
+      padding: 8px 15px;
+    }
+    
  } 
 }/* 600px breakpoint */
 
