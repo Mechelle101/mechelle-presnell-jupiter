@@ -1,21 +1,22 @@
+
+//add the dark mode toggle latter
+// document.querySelector(".darkModeToggle").addEventListener("click", () => {
+//   document.body.classList.toggle("dark-mode");
+// });
+
 // selecting the parent where to add the footer
 const body = document.body;
-
 // create the footer element
 const footer = document.createElement("footer");
-
 // append the footer to the parent element
 body.appendChild(footer);
 
 // creating a variable and assigning a Date obj
 const today = new Date();
-
 // create a thisYear variable and assign it the current year
 const thisYear = today.getFullYear();
-
 // create a copyright variable and use it to create a <p> element</p>
 const copyright = document.createElement("p");
-
 // set the inner HTML of the copyright <p> element
 copyright.innerHTML = `Mechelle Presnell \u00A9 ${thisYear}`;
 
@@ -32,13 +33,17 @@ const skillsSection = document.getElementById("skills");
 // select the ul element inside the skills section
 const skillsList = skillsSection.querySelector("ul");
 
-//iterate over the skills array with a forEach
+//prevent duplicates
+skillsList.innerHTML = ""; 
+
+/*
+iterate over the skills array with a forEach
+adding new li, setting innerText to new skill
+then appending them to skillsList
+*/
 skills.forEach(skillsText => {
-  //creating a new li element
   const skill = document.createElement("li");
-  //setting the inner text of the list item to the current skill
   skill.textContent = skillsText;
-  //append the skill element to the skillsList
   skillsList.appendChild(skill);
 });
 
@@ -139,7 +144,13 @@ fetch('https://api.github.com/users/Mechelle101/repos?sort=created&direction=des
   .then(repositories => {
     //selecting the projects section and li 
     const projectSection = document.getElementById("projects");
-    const projectList = projectSection.querySelector("li");
+    // const projectList = projectSection.querySelector("li");
+    const projectList = projectSection.querySelector("ul");
+    //if the ul does not exist, make one
+    if(!projectList) {
+      projectList = document.createElement("ul");
+      projectSection.appendChild(projectList)
+    }
 
     //clearing any existing content in the project list
     projectList.innerHTML = '';
@@ -147,7 +158,18 @@ fetch('https://api.github.com/users/Mechelle101/repos?sort=created&direction=des
     //iterate through the repos and creating an li to add the repo name to
     repositories.forEach(repo => {
       const project = document.createElement("li");
-      project.innerText = repo.name;
+
+      //create an a tag 
+      const repoLink = document.createElement("a");
+      repoLink.href = repo.html_url; //sets the GitHub repo url
+      repoLink.target = "_blank"; //opens in a new tab
+      repoLink.innerText = repo.name; //sets text to the repo name
+      repoLink.style.textDecoration
+ = "none";
+      repoLink.style.colo = "navy";
+
+      //append the a tag inside the li
+      project.appendChild(repoLink);
       projectList.appendChild(project);
     });
   })
@@ -162,6 +184,8 @@ fetch('https://api.github.com/users/Mechelle101/repos?sort=created&direction=des
 
     if(error.message.includes('404'))  {
       console.error(`User not found ${error.message}`);
+    } else if (error.message.includes("Failed to fetch")){
+      console.error('Network error, check your connection');
     } else {
       console.error(`Something went wrong, try again ${error.message}`);
     }
