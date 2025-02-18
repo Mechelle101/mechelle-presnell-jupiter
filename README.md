@@ -48,7 +48,7 @@ Future Enhancements
 •	🔹 Convert navigation to a hamburger menu for mobile
  
 Contact
-•	📧 Email: your-email@example.com
+•	📧 Email: mechellepresnell@gmail.com
 •	🔗 GitHub: Mechelle101
 •	🔗 LinkedIn: Mechelle Presnell
 
